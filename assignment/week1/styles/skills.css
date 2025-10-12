@@ -1,6 +1,8 @@
 #skills-container {
   display: flex;
   flex-direction: column;
+  height: 30vh;
+  justify-content: center;
   gap: 10px;
 }
 
