@@ -1,0 +1,39 @@
+.card-list {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card-item {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  > img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  div {
+    padding: 10px;
+  }
+}
+
+.card-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-item-like-logo {
+  width: 16px;
+  height: 16px;
+}
