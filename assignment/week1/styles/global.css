@@ -16,6 +16,13 @@ body {
   min-width: 400px;
 }
 
+#outlet {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* 일부 태그 여백 제거용 */
 h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
