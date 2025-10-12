@@ -5,27 +5,38 @@
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   text-align: center;
   padding: 10px 20px;
   border-bottom: 0.5px solid #ccc;
   z-index: 1000;
 }
 
-.header-info p {
-  color: #777;
+.header-info {
+  flex: 1;
+
+  p {
+    color: #777;
+  }
 }
 
-.header-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
+.header-image-wrapper {
+  flex: 1;
+  display: flex;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
 .header-sns {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
 
   img {
