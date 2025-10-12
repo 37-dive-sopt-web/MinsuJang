@@ -1,0 +1,21 @@
+#skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  list-style: none;
+
+  li {
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+  }
+}
