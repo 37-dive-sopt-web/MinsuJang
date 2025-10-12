@@ -1,3 +1,11 @@
+#pictures-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
+  gap: 10px;
+}
+
 .pictures-list {
   margin-top: 10px;
   display: flex;
