@@ -6,18 +6,39 @@
   gap: 10px;
 }
 
+.pictures-carousel {
+  overflow: hidden;
+  width: 100%;
+  > * {
+    flex: 0 0 100%;
+  }
+}
+@keyframes pictures-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .pictures-list {
-  margin-top: 10px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   gap: 10px;
-  overflow-x: auto;
+  width: max-content;
+  will-change: transform;
+  animation: pictures-scroll 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
 }
 
 .pictures-list img {
   width: 250px;
-  height: 150px;
+  height: 200px;
   object-fit: cover;
   border-radius: 5px;
+  padding: 20px 0;
+
+  &:hover {
+    transform: scale(2);
+    transition: 0.3s;
+  }
 }
