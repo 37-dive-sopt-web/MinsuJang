@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles/card.css">
   <link rel="stylesheet" href="styles/pictures.css">
   <link rel="stylesheet" href="styles/footer.css">
+  <link rel="stylesheet" href="styles/sidebar.css">
 </head>
 <body>
 <!-- 헤더 -->
@@ -37,149 +38,150 @@
 </header>
 <div id="outlet">
   <!-- 네비게이션 -->
-  <!--<nav>
-    <ul>
-      <li><a>소개</a></li>
-      <li><a>스킬</a></li>
-      <li><a>프로젝트</a></li>
-      <li><a>사진첩</a></li>
-      <li><a>한마디</a></li>
+  <nav id="sidebar-container">
+    <ul class="sidebar-list">
+      <li><a href="#hero-container">소개</a></li>
+      <li><a href="#skills-container">스킬</a></li>
+      <li><a href="#card-container">나의 모습</a></li>
+      <li><a href="#pictures-container">사진첩</a></li>
+      <li><a href="#footer-container">한마디</a></li>
     </ul>
-  </nav>-->
-  <!-- 히어로 -->
-  <section id="hero-container">
-    <img src="assets/img/img-header-profile.png" />
-    <div class="hero-info">
-      <h2>37기 웹 여러분안녕하세요. 잘 부탁드립니다!</h2>
-      <p>앞으로 함께 많이 배우고 성장하면 좋겠습니다!</p>
-      <nav class="hero-info-sns">
-        <a>
-          <img class="hero-info-logo" src="assets/icon/ic-logo-github.svg" />
-          <span>깃허브</span>
-        </a>
-        <a>
-          <img class="hero-info-logo" src="assets/icon/ic-logo-velog-.svg" />
-          <span>벨로그</span>
-        </a>
-      </nav>
-    </div>
-  </section>
-  <!-- 스킬 태그 -->
-  <section id="skills-container">
-    <h2>나의 스킬과 관심사</h2>
-    <ul class="skills-list">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>React</li>
-      <li>TypeScript</li>
-      <li>Nest.js</li>
-      <li>Next.js</li>
-      <li>Git</li>
-      <li>GitHub</li>
-      <li>Figma</li>
-      <li>성능 최적화</li>
-      <li>웹 접근성</li>
-      <li>먹는 거 좋아함</li>
-      <li>바다의 수평선을 좋아함</li>
-      <li>평냉</li>
-      <li>라멘</li>
-    </ul>
-  </section>
-  <!-- 카드 -->
-  <section id="card-container">
-    <h2>나의 모습</h2>
-    <div class="card-list">
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-      <article class="card-item">
-        <img src="assets/img/img-header-profile.png" />
-        <div class="card-item-content">
-          <header class="card-item-header">
-            <h3>열정적인 개발자</h3>
-            <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
-          </header>
-          <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-  <!-- 사진첩 -->
-  <section id="pictures-container">
-    <h2>사진첩</h2>
-    <div class="pictures-list">
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-      <figure>
-        <img src="assets/img/img-header-profile.png" />
-      </figure>
-    </div>
-  </section>
-  <!-- 푸터 -->
-  <footer id="footer-container">
-    <p>감사합니다 화이팅팅팅</p>
-  </footer>
+  </nav>
+  <div id="main-container">
+    <section id="hero-container">
+      <img src="assets/img/img-header-profile.png" />
+      <div class="hero-info">
+        <h2>37기 웹 여러분안녕하세요. 잘 부탁드립니다!</h2>
+        <p>앞으로 함께 많이 배우고 성장하면 좋겠습니다!</p>
+        <nav class="hero-info-sns">
+          <a>
+            <img class="hero-info-logo" src="assets/icon/ic-logo-github.svg" />
+            <span>깃허브</span>
+          </a>
+          <a>
+            <img class="hero-info-logo" src="assets/icon/ic-logo-velog-.svg" />
+            <span>벨로그</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <!-- 스킬 태그 -->
+    <section id="skills-container">
+      <h2>나의 스킬과 관심사</h2>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Nest.js</li>
+        <li>Next.js</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Figma</li>
+        <li>성능 최적화</li>
+        <li>웹 접근성</li>
+        <li>먹는 거 좋아함</li>
+        <li>바다의 수평선을 좋아함</li>
+        <li>평냉</li>
+        <li>라멘</li>
+      </ul>
+    </section>
+    <!-- 카드 -->
+    <section id="card-container">
+      <h2>나의 모습</h2>
+      <div class="card-list">
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.png" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>열정적인 개발자</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- 사진첩 -->
+    <section id="pictures-container">
+      <h2>사진첩</h2>
+      <div class="pictures-list">
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+        <figure>
+          <img src="assets/img/img-header-profile.png" />
+        </figure>
+      </div>
+    </section>
+    <!-- 푸터 -->
+    <footer id="footer-container">
+      <p>감사합니다 화이팅팅팅</p>
+    </footer>
+  </div>
 </div>
 </body>
 </html>
