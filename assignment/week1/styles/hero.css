@@ -4,6 +4,7 @@
   padding: 20px;
   align-items: center;
   justify-content: center;
+  height: 90vh;
 
   @media (max-width: 650px) {
     flex-direction: column;
