@@ -25,9 +25,9 @@
 .sidebar-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
+  padding: 5px 15px;
   list-style: none;
-  padding: 10px 20px;
   border: 0.5px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -42,5 +42,14 @@
 
 .sidebar-list li {
   cursor: pointer;
-  font-weight: 700;
+  padding: 5px;
+  color: #777;
+
+  &:hover {
+    color: black;
+    transition: 0.3s;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-weight: 700;
+  }
 }
