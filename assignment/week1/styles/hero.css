@@ -11,6 +11,10 @@
     flex-direction: column;
   }
 
+  @media (max-width: 898px) {
+    margin-right: 0;
+  }
+
   > img {
     width: 150px;
     height: 150px;
