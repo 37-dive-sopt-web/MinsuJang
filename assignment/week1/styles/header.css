@@ -1,5 +1,5 @@
 #header-container {
-  position: sticky;
+  position: fixed;
   background-color: white;
   top: 0;
   left: 0;
@@ -9,6 +9,7 @@
   text-align: center;
   padding: 10px 20px;
   border-bottom: 0.5px solid #ccc;
+  z-index: 1000;
 }
 
 .header-info p {
