@@ -20,6 +20,12 @@
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
   }
 }
 
@@ -53,5 +59,11 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px 20px;
+
+    &:hover {
+      background-color: #f0f0f0;
+      transition: 0.3s;
+      transform: scale(1.05);
+    }
   }
 }
