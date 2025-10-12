@@ -10,6 +10,12 @@
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
   > img {
     height: 150px;
     width: 100%;
@@ -36,4 +42,10 @@
 .card-item-like-logo {
   width: 16px;
   height: 16px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: red;
+    border-radius: 5px;
+  }
 }
