@@ -12,9 +12,10 @@
   @media (max-width: 898px) {
     position: fixed;
     height: auto;
-    top: 8vh;
+    top: 7.5vh;
     width: 100%;
     padding: 20px;
+    z-index: 99;
   }
 
   @Media (max-height: 660px) {
