@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장민수 자기소개</title>
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/hero.css">
+  <link rel="stylesheet" href="styles/pictures.css">
+  <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<!-- 헤더 -->
+<header id="header-container">
+  <div class="header-image-wrapper">
+    <img src="assets/img/img-header-profile.webp" alt="헤더 프로필 이미지" />
+  </div>
+  <div class="header-info">
+    <h2>장민수</h2>
+    <p>안녕하세요. 장민수입니다.</p>
+  </div>
+  <!-- <div> 보다는 <nav>와 <a> 태그를 통해 링크를 보여주는 구획 의미 명확히 전달-->
+  <nav class="header-sns">
+    <!-- 깃허브 -->
+    <a href="https://github.com/Tnalxmsk" target="_blank">
+      <img src="assets/icon/ic-logo-github.svg" alt="깃허브 아이콘" />
+    </a>
+    <!-- 벨로그 -->
+    <a href="https://velog.io/@tnalxmsk/posts" target="_blank">
+      <img src="assets/icon/ic-logo-velog-.svg" alt="벨로그 아이콘" />
+    </a>
+    <!-- 인스타 -->
+    <a href="https://www.instagram.com/tnalxmsk" target="_blank">
+      <img src="assets/icon/ic-logo-instagram.svg" alt="인스타 아이콘" />
+    </a>
+  </nav>
+</header>
+<div id="outlet">
+  <!-- 네비게이션 -->
+  <nav id="sidebar-container">
+    <ul class="sidebar-list">
+      <li><a href="#hero-container">소개</a></li>
+      <li><a href="#skills-container">스킬</a></li>
+      <li><a href="#card-container">나의 모습</a></li>
+      <li><a href="#pictures-container">사진첩</a></li>
+      <li><a href="#footer-container">한마디</a></li>
+    </ul>
+  </nav>
+  <div id="main-container">
+    <section id="hero-container">
+      <img class="hero-image" src="assets/img/img-header-profile.webp" alt="대표 프로필 이미지" />
+      <div class="hero-info">
+        <h2>37기 웹 여러분안녕하세요. 잘 부탁드립니다!</h2>
+        <p>앞으로 함께 많이 배우고 성장하면 좋겠습니다!</p>
+        <nav class="hero-info-sns">
+          <a href="https://github.com/Tnalxmsk" target="_blank">
+            <img class="hero-info-logo" src="assets/icon/ic-logo-github.svg" alt="깃허브 아이콘" />
+            <span>깃허브</span>
+          </a>
+          <a href="https://velog.io/@tnalxmsk/posts" target="_blank">
+            <img class="hero-info-logo" src="assets/icon/ic-logo-velog-.svg" alt="벨로그 아이콘" />
+            <span>벨로그</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <!-- 스킬 태그 -->
+    <section id="skills-container">
+      <h2>나의 스킬과 관심사</h2>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Nest.js</li>
+        <li>Next.js</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>Figma</li>
+        <li>성능 최적화</li>
+        <li>웹 접근성</li>
+        <li>먹는 거 좋아함</li>
+        <li>바다의 수평선을 좋아함</li>
+        <li>평냉</li>
+        <li>라멘</li>
+      </ul>
+    </section>
+    <!-- 카드 -->
+    <section id="card-container">
+      <h2>나의 모습</h2>
+      <div class="card-list">
+        <article class="card-item">
+          <img src="assets/img/img-header-profile.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>1년전</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>살찌기 전 사진이네요 다시 저때로 돌아가고 싶습니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-card-one.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>나이키런</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>1km당 4분 나왔는데 짤렸어요</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-card-two.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>우아콘</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>2023년 우아콘 현장 사진입니다.</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-card-three.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>고기국수</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>혼자 제주도 가서 먹은 고기국수랑 맛있는 김밥</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-card-four.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>본가까지 거리</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>명절에 차끌고 땅끝마을 다녀왔습니다. 올 때는 9시간 운전했어요 ㅠ</p>
+          </div>
+        </article>
+        <article class="card-item">
+          <img src="assets/img/img-card-five.webp" alt="카드 이미지" />
+          <div class="card-item-content">
+            <header class="card-item-header">
+              <h3>다이브 솝트</h3>
+              <img class="card-item-like-logo" src="assets/icon/ic-logo-heart.svg" alt="좋아요 아이콘" />
+            </header>
+            <p>솝트 OT 사진!</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <!-- 사진첩 -->
+    <section id="pictures-container">
+      <h2>사진첩</h2>
+      <div class="pictures-carousel">
+        <div class="pictures-list">
+          <figure>
+            <img src="assets/img/img-card-one.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-two.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-three.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-four.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-five.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-header-profile.webp" alt="사진첩 이미지" />
+          </figure>
+
+          <!-- 루프를 위한 중복 태그 -->
+          <figure>
+            <img src="assets/img/img-card-one.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-two.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-three.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-four.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-card-five.webp" alt="사진첩 이미지" />
+          </figure>
+          <figure>
+            <img src="assets/img/img-header-profile.webp" alt="사진첩 이미지" />
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- 푸터 -->
+    <footer id="footer-container">
+      <p>감사합니다 화이팅팅팅</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
