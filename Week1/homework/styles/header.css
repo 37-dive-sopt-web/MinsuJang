@@ -17,6 +17,10 @@
 
   p {
     color: #777;
+
+    @media (max-width: 650px) {
+      font-size: 12px;
+    }
   }
 }
 
