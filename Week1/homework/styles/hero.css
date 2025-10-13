@@ -14,18 +14,21 @@
   @media (max-width: 898px) {
     margin-right: 0;
   }
+}
 
-  > img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+.hero-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 
-    &:hover {
-      transform: scale(1.1);
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    }
+  &:hover {
+    /* transform에 관한 힌트 브라우저 제공 */
+    will-change: transform;
+    transform: scale(1.1);
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   }
 }
 
