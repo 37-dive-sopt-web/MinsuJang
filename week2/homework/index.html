@@ -3,23 +3,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>웹계인 관리 페이지</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="members.js"></script>
 </head>
 <body>
 <!--헤더 영역-->
 <header id="management-header">
   <div class="header-logo">👽</div>
-  <h1>웹계인 관리 페이지</h1>
+  <h1 class="header-title">웹계인 관리 페이지</h1>
   <p class="header-author">☁️DIVE SOPT 37기 웹 장민수☁️</p>
 </header>
 <!-- 주 콘텐츠 영역 -->
 <main id="management-outlet">
   <!-- 필터 영역 -->
   <section id="management-filter">
-
+    <h3>검색 필터</h3>
+    <form class="filter-form">
+      <fieldset class="filter-form-fieldset">
+        <div class="filter-form-item">
+          <label class="filter-form-item-label" for="user-name">이름</label>
+          <input class="filter-form-item-input" id="user-name" type="text" placeholder="이름을 입력하세요" />
+        </div>
+        <div class="filter-form-item">
+          <label class="filter-form-item-label" for="user-name-eng">영문 이름</label>
+          <input class="filter-form-item-input" id="user-name-eng" type="text" placeholder="영문 이름을 입력하세요" />
+        </div>
+        <div class="filter-form-item">
+          <label class="filter-form-item-label" for="user-github-id">깃허브</label>
+          <input class="filter-form-item-input" id="user-github-id" type="text" placeholder="깃허브 아이디를 입력하세요" />
+        </div>
+        <div class="filter-form-item">
+          <label class="filter-form-item-label" for="user-group">금잔디조</label>
+          <input class="filter-form-item-input" id="user-group" type="text" placeholder="금잔디조를 입력하세요 (1~9)" />
+        </div>
+        <div class="filter-form-button-wrapper">
+          <button class="filter-form-button">적용</button>
+          <button class="filter-form-button">초기화</button>
+        </div>
+      </fieldset>
+    </form>
   </section>
   <!-- 목록 영역 -->
   <section id="management-list">
-
+    ㅎㅎㅎ
   </section>
 </main>
 </body>

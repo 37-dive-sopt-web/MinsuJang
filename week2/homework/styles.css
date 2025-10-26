@@ -1,0 +1,114 @@
+/* Base Styles */
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: white;
+  overflow-x: hidden;
+}
+
+a, button {
+  outline: none;
+  width: 100%;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+#management-outlet {
+  padding: 5rem;
+  width: 80%;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+/* header styles */
+#management-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #99999980;
+}
+
+.header-logo, .header-title, .header-author {
+  flex: 1;
+  text-align: center;
+}
+
+/* filter styles */
+#management-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 10px 0 #99999980;
+  border-radius: 10px;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filter-form-fieldset {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.filter-form-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter-form-item-label {
+  flex: 1 min(3rem);
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.filter-form-item-input {
+  flex: 8;
+  padding: 0.5rem;
+  border: 1px solid #99999980;
+  border-radius: 5px;
+
+  &:focus {
+    border: 1px solid #6666ff;
+  }
+}
+
+.filter-form-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.filter-form-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #99999980;
+  border-radius: 5px;
+  background-color: #6666ff;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
