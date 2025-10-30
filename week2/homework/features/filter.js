@@ -1,6 +1,7 @@
 import { clampAge, clampGroup, qs } from "../utils/common.js";
 import { EMPTY_VALUE, GENDER, INITIAL_VALUE, ROLE } from "../const/common.js";
-import { getMembers, renderRows } from "./members.js";
+import { getMembers } from "./members.js";
+import { renderRows } from "./render.js";
 
 const DEFAULT_FILTERS = {
   name: INITIAL_VALUE,
@@ -26,32 +27,23 @@ const optionDom = {
 
 const form = qs('.filter-form');
 
-const renderFilters = (state) => {
-  optionDom.name.value = state.name ?? EMPTY_VALUE;
-  optionDom.engName.value = state.engName ?? EMPTY_VALUE;
-  optionDom.githubId.value = state.githubId ?? EMPTY_VALUE;
-  optionDom.role.value = state.role ?? ROLE.ALL;
-  optionDom.gender.value = state.gender ?? GENDER.ALL;
-  optionDom.group.value = state.group === EMPTY_VALUE ? EMPTY_VALUE : String(state.group);
-  optionDom.age.value = state.age === EMPTY_VALUE ? EMPTY_VALUE : String(state.age);
+const readFilters = () => {
+  return {
+    name: optionDom.name.value.trim(),
+    engName: optionDom.engName.value.trim(),
+    githubId: optionDom.githubId.value.trim(),
+    role: optionDom.role.value || ROLE.ALL,
+    gender: optionDom.gender.value || GENDER.ALL,
+    group: clampGroup(optionDom.group.value),
+    age: clampAge(optionDom.age.value),
+  };
 };
-
-const readFilters = () => ({
-  name: optionDom.name.value.trim(),
-  engName: optionDom.engName.value.trim(),
-  githubId: optionDom.githubId.value.trim(),
-  role: optionDom.role.value || ROLE.ALL,
-  gender: optionDom.gender.value || GENDER.ALL,
-  group: clampGroup(optionDom.group.value),
-  age: clampAge(optionDom.age.value),
-});
 
 const setFilter = (patchedOptions = {}) => {
   filterOptions = {
     ...filterOptions,
     ...patchedOptions,
   };
-  renderFilters(filterOptions);
   return filterOptions;
 };
 
@@ -81,6 +73,7 @@ form.addEventListener('submit', (e) => {
 
 // 초기화
 form.addEventListener('reset', () => {
-  filterOptions = { ...DEFAULT_FILTERS };
-  renderFilters(filterOptions);
+  const members = getMembers();
+  setFilter(DEFAULT_FILTERS);
+  renderRows(members);
 });
