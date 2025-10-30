@@ -3,8 +3,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>웹계인 관리 페이지</title>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="members.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/filter.css">
+  <link rel="stylesheet" href="styles/management-list.css">
+  <link rel="stylesheet" href="styles/modal.css">
+  <script type="module" src="mocks/members.js"></script>
+  <script type="module" src="features/members.js"></script>
+  <script type="module" src="features/filter.js"></script>
+  <script type="module" src="features/modal.js"></script>
+  <script type="module" src="const/common.js"></script>
 </head>
 <body>
 <!--헤더 영역-->
@@ -20,33 +27,125 @@
     <h3>검색 필터</h3>
     <form class="filter-form">
       <fieldset class="filter-form-fieldset">
-        <div class="filter-form-item">
+        <div class="filter-form-item span-12">
           <label class="filter-form-item-label" for="user-name">이름</label>
           <input class="filter-form-item-input" id="user-name" type="text" placeholder="이름을 입력하세요" />
         </div>
-        <div class="filter-form-item">
+        <div class="filter-form-item span-12">
           <label class="filter-form-item-label" for="user-name-eng">영문 이름</label>
           <input class="filter-form-item-input" id="user-name-eng" type="text" placeholder="영문 이름을 입력하세요" />
         </div>
-        <div class="filter-form-item">
+        <div class="filter-form-item span-4">
           <label class="filter-form-item-label" for="user-github-id">깃허브</label>
           <input class="filter-form-item-input" id="user-github-id" type="text" placeholder="깃허브 아이디를 입력하세요" />
         </div>
-        <div class="filter-form-item">
+        <div class="filter-form-item span-4">
+          <label class="filter-form-item-label" for="user-gender">성별</label>
+          <select class="filter-form-item-input" id="user-gender">
+            <option value="ALL" selected>전체</option>
+            <option value="male">남</option>
+            <option value="female">여</option>
+          </select>
+        </div>
+        <div class="filter-form-item span-4">
+          <label class="filter-form-item-label" for="user-role">역할</label>
+          <select class="filter-form-item-input" id="user-role">
+            <option value="ALL" selected>전체</option>
+            <option value="OB">OB</option>
+            <option value="YB">YB</option>
+          </select>
+        </div>
+        <div class="filter-form-item span-6">
           <label class="filter-form-item-label" for="user-group">금잔디조</label>
           <input class="filter-form-item-input" id="user-group" type="text" placeholder="금잔디조를 입력하세요 (1~9)" />
         </div>
-        <div class="filter-form-button-wrapper">
-          <button class="filter-form-button">적용</button>
-          <button class="filter-form-button">초기화</button>
+        <div class="filter-form-item span-6">
+          <label class="filter-form-item-label" for="user-age">나이</label>
+          <input class="filter-form-item-input" id="user-age" type="text" placeholder="나이를 입력하세요" />
         </div>
       </fieldset>
+      <div class="filter-form-button-wrapper">
+        <button type="submit" class="filter-form-button">적용</button>
+        <button type="reset" class="filter-form-button">초기화</button>
+      </div>
     </form>
   </section>
   <!-- 목록 영역 -->
   <section id="management-list">
-    ㅎㅎㅎ
+    <header class="management-list-header">
+      <h3>37기 웹 파트 목록</h3>
+      <div class="management-list-header-button-wrapper">
+        <button class="management-list-header-button">선태 삭제</button>
+        <button class="management-list-header-button">추가</button>
+      </div>
+    </header>
+    <div class="table-wrapper">
+      <table class="management-list-table">
+        <tr class="management-list-table-header-row">
+          <th>
+            <label>
+              <input type="checkbox" class="management-list-table-header-checkbox">
+            </label>
+          </th>
+          <th>이름</th>
+          <th>영문 이름</th>
+          <th>깃허브</th>
+          <th>성별</th>
+          <th>역할</th>
+          <th>금잔디조</th>
+          <th>나이</th>
+        </tr>
+      </table>
+    </div>
   </section>
 </main>
+<!-- 추가 모달 -->
+<dialog id="member-modal">
+  <header class="modal-header">
+    <h3>멤버 추가</h3>
+    <img class="modal-close" src="assets/ic-close.svg" alt="" />
+  </header>
+  <form class="modal-form">
+    <fieldset class="modal-form-fieldset">
+      <div class="modal-form-item span-2">
+        <label class="modal-form-item-label" for="user-add-name">이름</label>
+        <input class="modal-form-item-input" id="user-add-name" type="text" placeholder="이름을 입력하세요" />
+      </div>
+      <div class="modal-form-item span-2">
+        <label class="modal-form-item-label" for="user-add-name-eng">영문 이름</label>
+        <input class="modal-form-item-input" id="user-add-name-eng" type="text" placeholder="영문 이름을 입력하세요" />
+      </div>
+      <div class="modal-form-item span-2">
+        <label class="modal-form-item-label" for="user-add-github-id">깃허브</label>
+        <input class="modal-form-item-input" id="user-add-github-id" type="text" placeholder="깃허브 아이디를 입력하세요" />
+      </div>
+      <div class="modal-form-item span-1">
+        <label class="modal-form-item-label" for="user-add-gender">성별</label>
+        <select class="modal-form-item-input" id="user-add-gender">
+          <option value="all" selected disabled hidden>선택</option>
+          <option value="male">남</option>
+          <option value="female">여</option>
+        </select>
+      </div>
+      <div class="modal-form-item span-1">
+        <label class="modal-form-item-label" for="user-add-role">역할</label>
+        <select class="modal-form-item-input" id="user-add-role">
+          <option value="ALL" selected disabled hidden>선택</option>
+          <option value="OB">OB</option>
+          <option value="YB">YB</option>
+        </select>
+      </div>
+      <div class="modal-form-item span-1">
+        <label class="modal-form-item-label" for="user-add-group">금잔디조</label>
+        <input class="modal-form-item-input" id="user-add-group" type="text" placeholder="금잔디조를 입력하세요 (1~9)" />
+      </div>
+      <div class="modal-form-item span-1">
+        <label class="modal-form-item-label" for="user-add-age">나이</label>
+        <input class="modal-form-item-input" id="user-add-age" type="text" placeholder="나이를 입력하세요" />
+      </div>
+    </fieldset>
+    <button class="modal-submit-button" type="submit">추가</button>
+  </form>
+</dialog>
 </body>
 </html>
