@@ -1,0 +1,68 @@
+/* Base Styles */
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+  white-space: nowrap;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: white;
+  overflow-x: hidden;
+}
+
+a, button {
+  outline: none;
+  width: 100%;
+}
+
+input, textarea {
+  width: 100%;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+#management-outlet {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 5rem;
+  width: 80%;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+/* header styles */
+#management-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #99999980;
+}
+
+.header-logo, .header-title, .header-author {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title {
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
+
+.header-author {
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+}
