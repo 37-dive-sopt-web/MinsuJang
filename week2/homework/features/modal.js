@@ -1,11 +1,12 @@
-import { addButton, getMembers, membersData, nextMemberId, renderRows } from "./members.js";
+import { addButton, getMembers } from "./members.js";
 import { clampAge, clampGroup, qs } from "../utils/common.js";
-import { ALERT_MESSAGES } from "../const/common.js";
+import { ALERT_MESSAGES, INITIAL_MEMBER_ID, MEMBER_ID_INCREMENT } from "../const/common.js";
 import {
   validateMember,
   validateNumberFields,
   validateRequiredFields,
 } from "../utils/validate.js";
+import { renderRows } from "./render.js";
 
 const memberModal = document.getElementById('member-modal');
 const closeButton = qs('.modal-close');
@@ -36,6 +37,14 @@ const isClickedOutside = (e, modal) => {
   const isClickedVerticalOutside = e.clientY < rect.top || e.clientY > rect.bottom;
 
   return isClickedVerticalOutside || isClickedHorizontalOutside;
+};
+
+export const nextMemberId = () => {
+  const members = getMembers();
+  if (members.length === 0) {
+    return INITIAL_MEMBER_ID;
+  }
+  return Math.max(...members.map(member => Number(member.id) || 0)) + MEMBER_ID_INCREMENT;
 };
 
 const readFormValues = () => {
@@ -82,6 +91,7 @@ const createMember = () => {
 };
 
 const setMembers = (members) => {
+  const membersData = getMembers();
   localStorage.setItem("membersData", JSON.stringify(members));
   if (Array.isArray(membersData)) {
     membersData.length = 0;
@@ -142,18 +152,3 @@ memberModal.addEventListener('click', (e) => {
 
 form.addEventListener("submit", addMember);
 submitButton.addEventListener("click", addMember);
-
-
-/*  로직 변경으로 인한 주석 처리
-const normalizeMember = (newMember) => {
-  return {
-    id: nextMemberId(),
-    name: newMember.name,
-    englishName: newMember.englishName,
-    github: newMember.github,
-    role: newMember.role,
-    gender: newMember.gender,
-    codeReviewGroup: Number(newMember.codeReviewGroup),
-    age: Number(newMember.age),
-  };
-};*/
