@@ -20,7 +20,7 @@ Header.Title = ({ title, size }) => {
 
 Header.Tabs = ({ tabList, handleChangeTab, tabLabel, isCurrent }) => {
   return (
-    <HeaderTabWrapper isActive={isCurrent}>
+    <HeaderTabWrapper>
       {tabList.map((tab) => (
         <HeaderTab
           key={tab}
@@ -46,6 +46,7 @@ const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-width: 400px;
   background-color: ${({ theme }) => theme.colors.primary.primary200};
   border-radius: 10px;
   padding: 20px;
