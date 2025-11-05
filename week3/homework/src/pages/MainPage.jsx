@@ -34,5 +34,6 @@ export default MainPage;
 const MainContent = styled.section`
   background-color: ${({ theme }) => theme.colors.primary.primary200};
   border-radius: 10px;
+  min-width: 400px;
   height: 100%;
 `;
