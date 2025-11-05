@@ -4,10 +4,10 @@ import Deck from "./Deck.jsx";
 import Status from "./Status.jsx";
 import Row from "../common/Row.jsx";
 import { useHandleDeck } from "../../features/game/useHandleDeck.js";
-import { useHandleCardGameV2 } from "../../features/game/useHandleCardGameV2.js";
 import { useCallback, useEffect } from "react";
 import { INITIAL_LEVEL, LEVEL_OPTIONS } from "../../const/game.js";
 import { useTimer } from "../../features/game/useTimer.js";
+import { useHandleCardGame } from "../../features/game/useHandleCardGame.js";
 
 const Game = () => {
   const { deckInfo, generateDeck } = useHandleDeck();
@@ -19,7 +19,7 @@ const Game = () => {
     isComplete,
     isFlipped,
     resetCards,
-  } = useHandleCardGameV2(deckInfo);
+  } = useHandleCardGame(deckInfo);
   const { formattedTime, isRunning, startTimer, stopTimer, resetTimer } = useTimer(45, deckInfo.status);
 
   const { status, level, data } = deckInfo;

@@ -24,14 +24,14 @@ const Row = ({ children, gap = 16, height }) => {
  */
 Row.Item = ({ children, flex, padding = 0, borderRadius = 0, backgroundColor }) => {
   return (
-    <RowWrapper
+    <RowItemWrapper
       flex={flex}
       padding={padding}
       borderRadius={borderRadius}
       backgroundColor={backgroundColor}
     >
       {children}
-    </RowWrapper>
+    </RowItemWrapper>
   );
 };
 
@@ -45,7 +45,7 @@ const RowWrapper = styled.div`
   gap: ${({ gap }) => gap}px;
 `;
 
-const RowWrapper = styled.div`
+const RowItemWrapper = styled.div`
   flex: ${({ flex }) => flex};
   border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ theme, backgroundColor }) => backgroundColor};
