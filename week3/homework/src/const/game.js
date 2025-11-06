@@ -1,3 +1,5 @@
+export const MISMATCH_CLOSE_TIME = 800;
+
 export const MATCH_STATUS = {
   WAITING: 'WAITING',
   MATCH: 'MATCH',
