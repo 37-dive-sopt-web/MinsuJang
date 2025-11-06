@@ -36,3 +36,9 @@ export const GUIDE_MESSAGE = {
   [CURRENT_STATE.FIRST]: '카드를 하나 더 선택하세요',
   [CURRENT_STATE.END]: '모든 짝을 맞추셨습니다!',
 };
+
+export const GAME_PLAY_TIME = {
+  1: 45,
+  2: 60,
+  3: 100,
+};
