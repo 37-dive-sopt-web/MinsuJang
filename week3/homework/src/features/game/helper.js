@@ -2,12 +2,6 @@ import { MATCH_STATUS } from "../../const/game.js";
 
 export const pairKey = (cardId) => String(cardId).split('-')[0];
 
-export const isMatch = (flippedIds) => {
-  if (flippedIds.length !== 2) return false;
-  const [firstId, secondId] = flippedIds;
-  return pairKey(firstId) === pairKey(secondId);
-};
-
 export const checkMatch = (flippedIds) => {
   if (flippedIds.length !== 2) return { status: MATCH_STATUS.WAITING };
 
@@ -47,4 +41,27 @@ export const cancelRaf = (rafRef) => {
     cancelAnimationFrame(rafRef.current);
     rafRef.current = null;
   }
+};
+
+export const createHistory = (valueA, valueB, matched) => {
+  return {
+    valueA,
+    valueB,
+    status: matched ? "성공" : "실패",
+    date: new Date().toLocaleString(),
+  };
+};
+
+export const buildIdToValue = (cards) => {
+  const map = new Map();
+  cards.forEach((card) => map.set(card.id, card.value));
+  return map;
+};
+
+export const clearTimer = (timerRef) => {
+  if (!timerRef) return;
+  if (timerRef.current === null) return;
+
+  clearTimeout(timerRef.current);
+  timerRef.current = null;
 };
