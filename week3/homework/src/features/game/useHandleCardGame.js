@@ -1,121 +1,84 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { checkMatch } from "./helper.js";
-import { CURRENT_STATE, GUIDE_MESSAGE, MATCH_STATUS } from "../../const/game.js";
+import { useCallback, useEffect, useMemo, useReducer, useRef } from "react";
+import { buildIdToValue, checkMatch, clearTimer, createHistory } from "./helper.js";
+import { GUIDE_MESSAGE, MATCH_STATUS, MISMATCH_CLOSE_TIME } from "../../const/game.js";
+import { useMatchHistory } from "./useMatchHistory.js";
+import { ACTION, cardGameReducer, initialGameState } from "./cardGameReducer.js";
 
 export const useHandleCardGame = (deckInfo) => {
-  const [flippedCards, setFlippedCards] = useState([]);         // ['6-a', '6-b']
-  const [completeCards, setCompleteCards] = useState(() => new Set());
-  const [currentState, setCurrentState] = useState(CURRENT_STATE.START);
-  const [history, setHistory] = useState([]);
-  const timerRef = useRef(null);
-
   const isReady = deckInfo?.status === "ready";
   const total = deckInfo?.data?.length ?? 0;
-  const guideMessage = GUIDE_MESSAGE[currentState];
 
-  const idToValue = useMemo(() => {
-    const map = new Map();
-    deckInfo?.data?.forEach((card) => map.set(card.id, card.value));
-    return map;
-  }, [deckInfo?.data]);
+  const [state, dispatch] = useReducer(cardGameReducer, total, initialGameState);
+  const timerRef = useRef(null);
+  const { histories, pushHistories, resetHistories } = useMatchHistory();
 
-  const clearTimer = () => {
-    if (timerRef.current) {
-      clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-  };
+  useEffect(() => {
+    dispatch({ type: ACTION.TOTAL, total });
+    resetHistories();
+  }, [total, resetHistories]);
+
+  const guideMessage = useMemo(() => GUIDE_MESSAGE[state.phase] ?? "", [state.phase]);
+  const idToValue = useMemo(() => buildIdToValue(deckInfo?.data ?? []), [deckInfo?.data]);
 
   const isFlipped = useCallback(
-    (id) => flippedCards.includes(id) || completeCards.has(id),
-    [flippedCards, completeCards],
+    (id) => state.flipped.includes(id) || state.completed.has(id),
+    [state.completed, state.flipped],
   );
-  const isComplete = useCallback((id) => completeCards.has(id), [completeCards]);
+  const isComplete = useCallback((id) => state.completed.has(id), [state.completed]);
 
   const isAllComplete = useMemo(
-    () => total > 0 && completeCards.size === total,
-    [completeCards, total],
+    () => state.total > 0 && state.completed.size === state.total,
+    [state.completed, state.total],
   );
 
-  const resetFlipped = useCallback(() => setFlippedCards([]), []);
-  const resetHistory = useCallback(() => setHistory([]), []);
+  const resetFlipped = useCallback(() => {
+    dispatch({ type: ACTION.MISMATCH, close: true });
+  }, []);
 
-  const resetCards = () => {
-    clearTimer();
-    resetFlipped();
-    setCompleteCards(new Set());
-    setCurrentState(CURRENT_STATE.START);
-    resetHistory();
-  };
+  const resetCards = useCallback(() => {
+    clearTimer(timerRef);
+    dispatch({ type: ACTION.RESET });
+    resetHistories();
+  }, [resetHistories]);
 
   const handleFlipCard = useCallback(
     (id) => {
-      if (!isReady) return;
-      if (completeCards.has(id)) return;
-      if (flippedCards.includes(id)) {
-        setCurrentState(CURRENT_STATE.DUP);
-        return;
-      }
-      if (flippedCards.length === 2) return;
-
-      setFlippedCards((prev) => {
-        const next = [...prev, id];
-
-        if (next.length === 1) {
-          setCurrentState(CURRENT_STATE.FIRST);
-        }
-
-        return next;
-      });
+      dispatch({ type: ACTION.FLIP, id, isReady });
     },
-    [isReady, flippedCards, completeCards],
+    [isReady],
   );
 
   useEffect(() => {
-    const result = checkMatch(flippedCards);
+    if (state.flipped.length !== 2) return;
+
+    const result = checkMatch(state.flipped);
     if (result.status === MATCH_STATUS.WAITING) return;
 
-    clearTimer();
+    clearTimer(timerRef);
 
-    const [valueA, valueB] = result.ids.map((id) => idToValue.get(id));
-    const status = result.status === MATCH_STATUS.MATCH ? "성공" : "실패";
-    setHistory((prev) => [
-      {
-        valueA,
-        valueB,
-        status,
-        time: Date.now(),
-      },
-      ...prev,
-    ]);
+    const [a, b] = result.ids;
+    const matched = result.status === MATCH_STATUS.MATCH;
 
-    if (result.status === MATCH_STATUS.MATCH) {
-      // 매치: 완료셋 반영 + 카드 닫기, END 여부 즉시 판정
-      setCurrentState(CURRENT_STATE.MATCH);
-      setCompleteCards((prev) => {
-        const next = new Set([...prev, ...result.ids]);
-        setFlippedCards([]);
-        if (next.size === total) setCurrentState(CURRENT_STATE.END);
-        return next;
-      });
+    pushHistories(createHistory(idToValue.get(a), idToValue.get(b), matched));
+
+    if (matched) {
+      dispatch({ type: ACTION.MATCH, ids: result.ids });
       return;
     }
 
-    setCurrentState(CURRENT_STATE.MISMATCH);
+    dispatch({ type: ACTION.MISMATCH });
     timerRef.current = setTimeout(() => {
-      setFlippedCards([]);
+      dispatch({ type: ACTION.MISMATCH, close: true });
       timerRef.current = null;
-    }, 800);
+    }, MISMATCH_CLOSE_TIME);
 
-    return () => {
-      clearTimer();
-    };
-  }, [flippedCards, total, completeCards.size]);
+    return () => clearTimer(timerRef);
+  }, [state.flipped, idToValue, pushHistories]);
 
   return {
-    completeCards,
+    completeCards: state.completed,
     guideMessage,
-    history,
+    histories,
     isFlipped,
     isComplete,
     isAllComplete,
