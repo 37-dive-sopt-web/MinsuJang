@@ -4,7 +4,7 @@ import Deck from "./Deck.jsx";
 import Status from "./Status.jsx";
 import Row from "../common/Row.jsx";
 import { useHandleDeck } from "../../features/game/useHandleDeck.js";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { GAME_GRID_SIZE, GAME_PLAY_TIME, INITIAL_LEVEL, LEVEL_OPTIONS } from "../../const/game.js";
 import { useTimer } from "../../features/game/useTimer.js";
 import { useHandleCardGame } from "../../features/game/useHandleCardGame.js";
@@ -12,9 +12,11 @@ import Modal from "../common/Modal.jsx";
 import useModal from "../../features/comon/useModal.js";
 import { useCountdown } from "../../features/game/useCountdown.js";
 import theme from "../../styles/theme.js";
+import { saveRanking } from "../../features/rank/rankStore.js";
 
 const Game = () => {
   const { deckInfo, generateDeck } = useHandleDeck();
+  const savedOnceRef = useRef(false);
   const { status, level, data } = deckInfo;
   const {
     completeCards,
@@ -25,7 +27,13 @@ const Game = () => {
     isFlipped,
     resetCards,
   } = useHandleCardGame(deckInfo);
-  const { formattedTime, isRunning, startTimer, stopTimer, resetTimer } = useTimer(GAME_PLAY_TIME[level], deckInfo.status);
+  const {
+    formattedTime,
+    isRunning,
+    startTimer,
+    stopTimer,
+    resetTimer,
+  } = useTimer(GAME_PLAY_TIME[level], deckInfo.status);
   const { isOpen, openModal, closeModal } = useModal();
   const { countdown } = useCountdown(3, isOpen, () => {
     closeModal();
@@ -38,6 +46,7 @@ const Game = () => {
   const isAllComplete = totalPairCount > 0 && successPairCount === totalPairCount;
 
   const handleResetGame = () => {
+    savedOnceRef.current = false;
     resetTimer();
     resetCards();
     generateDeck(currentLevel);
@@ -64,11 +73,14 @@ const Game = () => {
   }, [status, generateDeck]);
 
   useEffect(() => {
-    if (isAllComplete) {
+    if (!isAllComplete || savedOnceRef.current) return;
+    if (!isOpen) {
       stopTimer();
       openModal();
     }
-  }, [isAllComplete, stopTimer, openModal]);
+    saveRanking({ level: level, time: 45 - Number(formattedTime), date: new Date().toLocaleString() });
+    savedOnceRef.current = true;
+  }, [isAllComplete, isOpen, level, formattedTime, stopTimer, openModal]);
 
   useEffect(() => {
     if (Number(formattedTime) === 0 && !isAllComplete) {
@@ -127,7 +139,6 @@ const Game = () => {
           color={isAllComplete ? 'green' : 'red'}
         />
       </Modal>
-      <button onClick={openModal}>open</button>
     </>
   );
 };
