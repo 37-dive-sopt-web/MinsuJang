@@ -19,6 +19,7 @@ const Deck = ({ status, level, contents }) => {
 Deck.Card = ({ id, handleFlipCard, isFlipped, isComplete, value, cardSize }) => {
   const flipped = isFlipped(id);
   const matched = isComplete(id);
+
   return (
     <Card
       type="button"
@@ -29,9 +30,9 @@ Deck.Card = ({ id, handleFlipCard, isFlipped, isComplete, value, cardSize }) => 
       disabled={matched}
     >
       <CardInner flipped={flipped || matched} matched={matched}>
-          <CardFaceFront>{'?'}</CardFaceFront>
-          <CardFaceBack>{value}</CardFaceBack>
-          {matched && <Highlight />}
+        <CardFaceFront>{'?'}</CardFaceFront>
+        <CardFaceBack>{value}</CardFaceBack>
+        {matched && <Highlight />}
       </CardInner>
     </Card>
   );
@@ -66,6 +67,12 @@ const CardInner = styled.div`
   transform: ${({ flipped }) => (flipped ? 'rotateY(180deg)' : 'rotateY(0deg)')};
   cursor: pointer;
 
+  &:active {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.primary.primary200} inset,
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
   ${({ matched, theme }) =>
     matched && `
       animation: celebrate 600ms ease-out 1 forwards;
@@ -92,7 +99,7 @@ const CardFaceFront = styled(CardFace)`
 const CardFaceBack = styled(CardFace)`
   background-color: ${({ theme }) => theme.colors.primary.primary50};
   color: ${({ theme }) => theme.colors.primary.primary500};
-  transform: rotateY(180deg); /* 뒤집혔을 때 정면으로 */
+  transform: rotateY(180deg);
 `;
 
 const Highlight = styled.i`
