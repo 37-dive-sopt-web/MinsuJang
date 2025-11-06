@@ -5,9 +5,9 @@ export const MATCH_STATUS = {
 };
 
 export const GAME_GRID_SIZE = {
-  1: { columns: 4, rows: 4, size: 80 },
-  2: { columns: 6, rows: 4, size: 60 },
-  3: { columns: 6, rows: 6, size: 60 },
+  1: { columns: 4, rows: 4, size: 120 },
+  2: { columns: 6, rows: 4, size: 100 },
+  3: { columns: 6, rows: 6, size: 100 },
 };
 
 export const INITIAL_LEVEL = 1;
