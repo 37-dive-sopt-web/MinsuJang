@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import styled from "@emotion/styled";
-import { useDialogControl } from "../../features/comon/useDialogControl.js";
+import { useDialogControl } from "../../features/common/useDialogControl.js";
 
 const MODAL_ROOT_ID = "modal-root";
 

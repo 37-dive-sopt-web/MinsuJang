@@ -9,7 +9,7 @@ import { GAME_GRID_SIZE, GAME_PLAY_TIME, INITIAL_LEVEL, LEVEL_OPTIONS } from "..
 import { useTimer } from "../../features/game/useTimer.js";
 import { useHandleCardGame } from "../../features/game/useHandleCardGame.js";
 import Modal from "../common/Modal.jsx";
-import useModal from "../../features/comon/useModal.js";
+import useModal from "../../features/common/useModal.js";
 import { useCountdown } from "../../features/game/useCountdown.js";
 import theme from "../../styles/theme.js";
 import { saveRanking } from "../../features/rank/rankStore.js";
