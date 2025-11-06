@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cancelRaf, countdownTick } from "./helper.js";
 
+/**
+ * @description 게임 타이머 조작 커스텀 훅
+ */
 export const useTimer = (duration = 45, trigger) => {
   const [remainSec, setRemainSec] = useState(duration);
   const [isOver, setIsOver] = useState(false);
