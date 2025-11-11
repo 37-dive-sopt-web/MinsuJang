@@ -29,4 +29,13 @@ export const vars = createThemeContract({
     md: null,
     lg: null,
   },
+  layout: {
+    maxWidth: null,
+  },
+  fontWeight: {
+    regular: null,
+    medium: null,
+    semibold: null,
+    bigBold: null,
+  },
 });

@@ -30,4 +30,13 @@ export const baseTheme = createTheme(vars, {
     md: '16px',
     lg: '20px',
   },
+  layout: {
+    maxWidth: '480px',
+  },
+  fontWeight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bigBold: '700',
+  },
 });
