@@ -1,0 +1,33 @@
+import { Top } from '@shared/ui/Top.tsx';
+import LoginForm from '@features/auth/ui/LoginForm.tsx';
+import Column from '@shared/ui/Column.tsx';
+import SignUpLink from '@features/auth/ui/SignUpLink.tsx';
+
+const LoginPanel = () => {
+  const handleLogin = () => {};
+
+  const disabled = true;
+  return (
+    <Column spacing='lg' fullWidth={true}>
+      <Top children={<Top.TitleParagraph>로그인</Top.TitleParagraph>} />
+      <LoginForm>
+        <LoginForm.Field
+          label='이메일'
+          id='login-email'
+          placeholder='이메일을 입력해 주세요'
+          type='text'
+        />
+        <LoginForm.Field
+          label='비밀번호'
+          id='login-passowrd'
+          placeholder='비밀번호를 입력해 주세요'
+          type='password'
+        />
+        <LoginForm.Button label='로그인' onClick={() => handleLogin()} disabled={disabled} />
+      </LoginForm>
+      <SignUpLink />
+    </Column>
+  );
+};
+
+export default LoginPanel;
