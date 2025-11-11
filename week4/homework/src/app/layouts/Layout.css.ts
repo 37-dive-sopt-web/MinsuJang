@@ -5,7 +5,6 @@ export const authLayoutWrapper = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  alignItems: 'center',
   height: '100dvh',
   width: vars.layout.maxWidth,
   margin: '0 auto',
