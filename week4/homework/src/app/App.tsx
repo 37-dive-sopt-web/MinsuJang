@@ -1,7 +1,11 @@
-import AuthPage from '@pages/auth/ui/AuthPage.tsx';
+import { AppRouterProvider } from '@app/providers/AppRouterProvider.tsx';
 
 function App() {
-  return <AuthPage />;
+  return (
+    <>
+      <AppRouterProvider />
+    </>
+  );
 }
 
 export default App;
