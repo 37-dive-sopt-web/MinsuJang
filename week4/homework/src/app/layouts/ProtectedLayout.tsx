@@ -2,10 +2,12 @@ import { Outlet } from 'react-router-dom';
 
 const ProtectedLayout = () => {
   return (
-    <div>
+    <>
       <header />
-      <Outlet />
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 };
 
