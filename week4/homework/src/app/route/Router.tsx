@@ -5,6 +5,7 @@ import MyPage from '@pages/my/ui/MyPage.tsx';
 import MembersPage from '@pages/members/ui/MembersPage.tsx';
 import { Navigate } from 'react-router-dom';
 import NotFoundPage from '@pages/common/ui/NotFoundPage.tsx';
+import { LoginPage, SignupPage } from '@pages/auth';
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,15 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AuthLayout />,
+        element: <Navigate to='login' />,
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'sign-up',
+        element: <SignupPage />,
       },
     ],
   },
