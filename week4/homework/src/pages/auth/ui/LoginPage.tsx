@@ -1,21 +1,7 @@
-import Button from '@shared/ui/Button.tsx';
+import LoginPanel from '@widgets/auth/ui/LoginPanel.tsx';
 
 const LoginPage = () => {
-  const handleLogin = () => {};
-
-  const disabled = false;
-  return (
-    <>
-      <Button
-        tone={disabled ? 'secondary' : 'primary'}
-        label='로그인'
-        fullWidth={true}
-        size='md'
-        onClick={handleLogin}
-        disabled={disabled}
-      />
-    </>
-  );
+  return <LoginPanel />;
 };
 
 export default LoginPage;
