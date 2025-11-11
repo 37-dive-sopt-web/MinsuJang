@@ -1,9 +1,12 @@
 import { AppRouterProvider } from '@app/providers/AppRouterProvider.tsx';
+import { AppQueryProvider } from '@app/providers/AppQueryProvider.tsx';
 
 function App() {
   return (
     <>
-      <AppRouterProvider />
+      <AppQueryProvider>
+        <AppRouterProvider />
+      </AppQueryProvider>
     </>
   );
 }
