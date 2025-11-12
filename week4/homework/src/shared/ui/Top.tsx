@@ -13,4 +13,6 @@ const TitleParagraph = ({ children }: HeadingProps) => {
   return <h1 className={fonts.heading}>{children}</h1>;
 };
 
-export const Top = Object.assign(TopRoot, { TitleParagraph });
+const Top = Object.assign(TopRoot, { TitleParagraph });
+
+export default Top;

@@ -1,7 +1,6 @@
-import { Top } from '@shared/ui/Top.tsx';
 import LoginForm from '@features/auth/ui/LoginForm.tsx';
-import Column from '@shared/ui/Column.tsx';
 import SignUpLink from '@features/auth/ui/SignUpLink.tsx';
+import { Column, Top } from '@shared/ui';
 
 const LoginPanel = () => {
   const handleLogin = () => {};

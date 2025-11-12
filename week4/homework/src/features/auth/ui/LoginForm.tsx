@@ -1,13 +1,10 @@
 import type { ChildrenProps } from '@shared/types/common.ts';
 import { EyeClosed, EyeIcon } from 'lucide-react';
-import Button from '@shared/ui/Button.tsx';
-import Label from '@shared/ui/Label.tsx';
-import Input from '@shared/ui/Input.tsx';
 import * as S from '@features/auth/ui/LoginForm.css.ts';
-import Column from '@shared/ui/Column.tsx';
 import { useState } from 'react';
 import { vars } from '@shared/styles/token.css.ts';
 import { endAdornmentWrapper } from '@features/auth/ui/LoginForm.css.ts';
+import { Button, Column, Input, Label } from '@shared/ui';
 
 type LoginFormProps = ChildrenProps;
 type LoginFormButtonProps = {
