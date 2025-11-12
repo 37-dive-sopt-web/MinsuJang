@@ -37,10 +37,16 @@ export const inputBase = recipe({
       md: { fontSize: vars.size.md },
       lg: { fontSize: vars.size.lg },
     },
+    emptyAdornment: {
+      false: {
+        paddingRight: vars.space.xl,
+      },
+    },
   },
 
   defaultVariants: {
     tone: 'default',
     size: 'md',
+    emptyAdornment: true,
   },
 });
