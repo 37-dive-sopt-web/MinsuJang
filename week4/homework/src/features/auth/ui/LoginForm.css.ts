@@ -7,3 +7,10 @@ export const loginFormWrapper = style({
   width: '100%',
   gap: vars.space.lg,
 });
+
+export const endAdornmentWrapper = style({
+  width: 'fit-content',
+  position: 'absolute',
+  transform: 'translateY(50%) translateX(1830%)',
+  cursor: 'pointer',
+});

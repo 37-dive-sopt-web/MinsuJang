@@ -17,11 +17,10 @@ const LoginPanel = () => {
           placeholder='이메일을 입력해 주세요'
           type='text'
         />
-        <LoginForm.Field
+        <LoginForm.PasswordField
           label='비밀번호'
           id='login-passowrd'
           placeholder='비밀번호를 입력해 주세요'
-          type='password'
         />
         <LoginForm.Button label='로그인' onClick={() => handleLogin()} disabled={disabled} />
       </LoginForm>
