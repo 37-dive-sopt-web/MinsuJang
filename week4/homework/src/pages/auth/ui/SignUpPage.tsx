@@ -1,5 +1,7 @@
+import SignUpPanel from '@widgets/auth/ui/SignUpPanel.tsx';
+
 const SignUpPage = () => {
-  return <div>SignUpPage</div>;
+  return <SignUpPanel />;
 };
 
 export default SignUpPage;
