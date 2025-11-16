@@ -7,7 +7,7 @@ import type { PartialVariants } from '@shared/types/common.ts';
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   PartialVariants<typeof buttonBase> & {
     label: string;
-    onClick: () => void;
+    onClick?: () => void;
     type?: 'button' | 'submit' | 'reset';
   };
 
