@@ -1,42 +1,50 @@
 import type { ChildrenProps } from '@shared/types/common.ts';
 import { EyeClosed, EyeIcon } from 'lucide-react';
-import * as S from '@features/auth/ui/LoginForm.css.ts';
-import { useState } from 'react';
+import * as S from '@shared/ui/Form.css.ts';
+import React, { useState } from 'react';
 import { vars } from '@shared/styles/token.css.ts';
-import { endAdornmentWrapper } from '@features/auth/ui/LoginForm.css.ts';
-import { Button, Column, Input, Label } from '@shared/ui';
+import { endAdornmentWrapper } from '@shared/ui/Form.css.ts';
+import { Button, Column, Input, Label } from '@shared/ui/index.ts';
 
-type LoginFormProps = ChildrenProps;
-type LoginFormButtonProps = {
-  label: string;
-  onClick: () => void;
-  disabled?: boolean;
+type FormProps = ChildrenProps & {
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 };
+
+type FormButtonProps = {
+  label: string;
+  disabled?: boolean;
+  type?: 'submit' | 'button';
+};
+
 type FieldProps = {
   label: string;
   id: string;
   placeholder: string;
-  type?: 'text' | 'password';
+  type?: 'text' | 'password' | 'email' | 'number';
 };
 
-const LoginFormRoot = ({ children }: LoginFormProps) => {
-  return <form className={S.loginFormWrapper}>{children}</form>;
+const FormRoot = ({ children, onSubmit }: FormProps) => {
+  return (
+    <form className={S.formWrapper} onSubmit={onSubmit}>
+      {children}
+    </form>
+  );
 };
 
-const LoginFormButton = ({ label, onClick, disabled }: LoginFormButtonProps) => {
+const FormButton = ({ label, disabled, type }: FormButtonProps) => {
   return (
     <Button
       tone={disabled ? 'secondary' : 'primary'}
       label={label}
       fullWidth={true}
       size='md'
-      onClick={onClick}
       disabled={disabled}
+      type={type}
     />
   );
 };
 
-const LoginFormField = ({ label, id, placeholder, type }: FieldProps) => {
+const FormField = ({ label, id, placeholder, type }: FieldProps) => {
   return (
     <Column>
       <Label htmlFor={id} label={label} />
@@ -45,7 +53,7 @@ const LoginFormField = ({ label, id, placeholder, type }: FieldProps) => {
   );
 };
 
-const LoginFormPasswordField = ({ label, id, placeholder }: Exclude<FieldProps, 'type'>) => {
+const FormPasswordField = ({ label, id, placeholder }: Exclude<FieldProps, 'type'>) => {
   const [visible, setVisible] = useState(false);
   const toggleVisible = () => setVisible(!visible);
   const tooltip = visible ? '비밀번호 숨기기' : '비밀번호 표시';
@@ -81,10 +89,10 @@ const LoginFormPasswordField = ({ label, id, placeholder }: Exclude<FieldProps, 
   );
 };
 
-const LoginForm = Object.assign(LoginFormRoot, {
-  Button: LoginFormButton,
-  Field: LoginFormField,
-  PasswordField: LoginFormPasswordField,
+const Form = Object.assign(FormRoot, {
+  Button: FormButton,
+  Field: FormField,
+  PasswordField: FormPasswordField,
 });
 
-export default LoginForm;
+export default Form;
