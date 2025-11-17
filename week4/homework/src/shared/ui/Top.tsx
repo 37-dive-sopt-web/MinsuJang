@@ -13,6 +13,10 @@ const TitleParagraph = ({ children }: HeadingProps) => {
   return <h1 className={fonts.heading}>{children}</h1>;
 };
 
-const Top = Object.assign(TopRoot, { TitleParagraph });
+const SubTitleParagraph = ({ children }: HeadingProps) => {
+  return <p className={fonts.body}>{children}</p>;
+};
+
+const Top = Object.assign(TopRoot, { TitleParagraph, SubTitleParagraph });
 
 export default Top;
