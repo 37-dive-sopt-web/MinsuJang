@@ -6,6 +6,11 @@ export interface ChildrenProps {
   children: React.ReactNode;
 }
 
+export type ModalProps = {
+  open: boolean;
+  onClose: () => void;
+};
+
 export type PartialVariants<T extends RuntimeFn<Record<string, any>>> = Partial<RecipeVariants<T>>;
 
 export type FontKey = keyof typeof fonts;
