@@ -1,9 +1,11 @@
 import { Form, Row, Text } from '@shared/ui';
 import React from 'react';
 import { useGetUserInfo } from '@features/users/model/useGetUserInfo.ts';
+import { useAuthStore } from '@shared/model/useAuthStore.ts';
 
 const ProfileForm = () => {
-  const { data } = useGetUserInfo('1');
+  const userId = useAuthStore.getState().userId;
+  const { data } = useGetUserInfo(String(userId));
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
@@ -12,7 +14,7 @@ const ProfileForm = () => {
     <Form onSubmit={handleSubmit}>
       <Row justify='between'>
         <Text font='caption'>아이디</Text>
-        <Text.Strong font='subheading'>{data?.id}</Text.Strong>
+        <Text.Strong font='subheading'>{data?.username}</Text.Strong>
       </Row>
       <Form.Field
         label='이름'
