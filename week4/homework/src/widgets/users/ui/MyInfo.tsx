@@ -1,6 +1,5 @@
 import { Column, Text, Top } from '@shared/ui';
 import ProfileForm from '@features/users/ui/ProfileForm.tsx';
-import { Suspense } from 'react';
 import Loading from '@shared/ui/Loading.tsx';
 import AsyncBoundary from '@shared/ui/AsyncBoundary.tsx';
 
@@ -12,9 +11,7 @@ const MyInfo = () => {
         rejectedFallback={(error) => <Text font={'heading'}>{error.message}</Text>}
         pendingFallback={<Loading />}
       >
-        <Suspense fallback={<Loading />}>
-          <ProfileForm />
-        </Suspense>
+        <ProfileForm />
       </AsyncBoundary>
     </Column>
   );
