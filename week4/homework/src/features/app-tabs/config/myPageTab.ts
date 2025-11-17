@@ -11,12 +11,12 @@ export const MY_PAGE_TABS = [
   },
   {
     id: 'LOGOUT',
-    label: '로그 아웃',
+    label: '로그아웃',
     path: undefined,
   },
   {
     id: 'DELETE',
-    label: '회원 탈퇴',
+    label: '회원탈퇴',
     path: undefined,
   },
 ] as const;
