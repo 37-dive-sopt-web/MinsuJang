@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import type { PartialVariants } from '@shared/types/common.ts';
 import { inputBase } from '@shared/ui/Input.css.ts';
 import clsx from 'clsx';
@@ -10,16 +10,17 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
     render?: React.ReactNode;
   };
 
-const Input = ({ tone, size, render, ...rest }: InputProps) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ tone, fontSize, render, ...rest }, ref) => {
   return (
     <>
       <input
-        className={clsx(inputBase({ tone: tone, size: size, emptyAdornment: !render }), fonts.body)}
+        ref={ref}
+        className={clsx(inputBase({ tone: tone, fontSize: fontSize, emptyAdornment: !render }), fonts.body)}
         {...rest}
       />
       {render}
     </>
   );
-};
+});
 
 export default Input;

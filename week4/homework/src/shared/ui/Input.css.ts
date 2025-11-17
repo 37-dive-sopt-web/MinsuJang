@@ -32,7 +32,7 @@ export const inputBase = recipe({
         borderColor: vars.color.accent,
       },
     },
-    size: {
+    fontSize: {
       sm: { fontSize: vars.size.sm },
       md: { fontSize: vars.size.md },
       lg: { fontSize: vars.size.lg },
@@ -46,7 +46,7 @@ export const inputBase = recipe({
 
   defaultVariants: {
     tone: 'default',
-    size: 'md',
+    fontSize: 'md',
     emptyAdornment: true,
   },
 });

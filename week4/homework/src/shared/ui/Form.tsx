@@ -16,7 +16,7 @@ type FormButtonProps = {
   type?: 'submit' | 'button';
 };
 
-type FieldProps = {
+type FieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   id: string;
   placeholder: string;
@@ -45,16 +45,16 @@ const FormButton = ({ label, disabled, type }: FormButtonProps) => {
   );
 };
 
-const FormField = ({ label, id, placeholder, type }: FieldProps) => {
+const FormField = ({ label, id, placeholder, type, ...inputProps }: FieldProps) => {
   return (
     <Column>
       <Label htmlFor={id} label={label} />
-      <Input id={id} label={label} placeholder={placeholder} type={type} />
+      <Input id={id} label={label} placeholder={placeholder} type={type} {...inputProps} />
     </Column>
   );
 };
 
-const FormPasswordField = ({ label, id, placeholder, value }: Exclude<FieldProps, 'type'>) => {
+const FormPasswordField = ({ label, id, placeholder, value, ...inputProps }: Exclude<FieldProps, 'type'>) => {
   const [visible, setVisible] = useState(false);
   const toggleVisible = () => setVisible(!visible);
   const tooltip = visible ? '비밀번호 숨기기' : '비밀번호 표시';
@@ -76,6 +76,7 @@ const FormPasswordField = ({ label, id, placeholder, value }: Exclude<FieldProps
         placeholder={placeholder}
         type={type}
         value={value}
+        {...inputProps}
         render={
           <button
             type={'button'}

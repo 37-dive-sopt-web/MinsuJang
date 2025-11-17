@@ -6,3 +6,8 @@ export type UserInfoResponse = {
   age: number;
   status: string;
 };
+
+export type LoginResponse = {
+  userId: number;
+  message: string;
+};

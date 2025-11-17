@@ -1,8 +1,10 @@
 import { ConfirmModal } from '@shared/ui';
 import type { ModalProps } from '@shared/types/common.ts';
+import { useAuthStore } from '@shared/model/useAuthStore.ts';
 
 const LogoutModal = ({ open, onClose }: ModalProps) => {
   const handleLogout = () => {
+    useAuthStore.getState().logout();
     onClose();
   };
   const handleCancel = () => {
