@@ -30,6 +30,10 @@ export const buttonBase = recipe({
         background: vars.color.secondary,
         color: vars.color.background,
       },
+      red: {
+        background: 'red',
+        color: vars.color.background,
+      },
     },
     size: {
       sm: { fontSize: vars.size.sm },
