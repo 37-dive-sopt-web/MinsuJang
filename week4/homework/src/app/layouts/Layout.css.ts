@@ -10,3 +10,9 @@ export const authLayoutWrapper = style({
   margin: '0 auto',
   backgroundColor: vars.color.background,
 });
+
+export const protectedLayoutWrapper = style({
+  width: vars.layout.maxWidth,
+  margin: '0 auto',
+  backgroundColor: vars.color.background,
+});
