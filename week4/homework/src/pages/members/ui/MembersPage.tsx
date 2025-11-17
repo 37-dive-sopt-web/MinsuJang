@@ -1,5 +1,7 @@
+import UsersInfoPanel from '@widgets/users/ui/UsersInfoPanel.tsx';
+
 const MembersPage = () => {
-  return <div>MembersPage</div>;
+  return <UsersInfoPanel />;
 };
 
 export default MembersPage;
