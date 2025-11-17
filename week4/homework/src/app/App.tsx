@@ -6,11 +6,11 @@ import { OverlayProvider } from 'overlay-kit';
 function App() {
   return (
     <ThemeProvider>
-      <OverlayProvider>
-        <AppQueryProvider>
+      <AppQueryProvider>
+        <OverlayProvider>
           <AppRouterProvider />
-        </AppQueryProvider>
-      </OverlayProvider>
+        </OverlayProvider>
+      </AppQueryProvider>
     </ThemeProvider>
   );
 }

@@ -5,3 +5,7 @@ import type { UserInfoResponse } from '@entities/users/model/response.ts';
 export const fetchUserById = async (id: string = '1') => {
   return await kyInstance.get(`users/${id}`).json<BaseResponse<UserInfoResponse>>();
 };
+
+export const deleteUser = async (id: string) => {
+  return await kyInstance.delete(`users/${id}`).json();
+};

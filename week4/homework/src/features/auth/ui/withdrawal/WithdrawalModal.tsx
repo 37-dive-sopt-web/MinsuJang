@@ -1,13 +1,18 @@
 import { ConfirmModal } from '@shared/ui';
 import type { ModalProps } from '@shared/types/common.ts';
+import { useDeleteUser } from '@features/users/model/useDeleteUser.ts';
 
 const WithdrawalModal = ({ open, onClose }: ModalProps) => {
-  const handleLogout = () => {
+  const { mutate, isPending } = useDeleteUser();
+  const handleWithdrawal = () => {
+    mutate('1');
     onClose();
   };
   const handleCancel = () => {
     onClose();
   };
+
+  const confirmText = isPending ? '탈퇴중...' : '탈퇴'
 
   return (
     <ConfirmModal
@@ -15,9 +20,9 @@ const WithdrawalModal = ({ open, onClose }: ModalProps) => {
       onClose={onClose}
       title='정말 탈퇴 하시겠어요?'
       description='탈퇴 후에는 모든 정보가 삭제돼요'
-      confirmText='탈퇴'
+      confirmText={confirmText}
       cancelText='취소'
-      onConfirm={handleLogout}
+      onConfirm={handleWithdrawal}
       onCancel={handleCancel}
     />
   );
