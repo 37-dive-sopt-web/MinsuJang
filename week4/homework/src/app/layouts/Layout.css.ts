@@ -12,6 +12,7 @@ export const authLayoutWrapper = style({
 });
 
 export const protectedLayoutWrapper = style({
+  paddingTop: '5rem',
   width: vars.layout.maxWidth,
   margin: '0 auto',
   backgroundColor: vars.color.background,
