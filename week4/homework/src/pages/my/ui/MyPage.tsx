@@ -1,7 +1,7 @@
-import UserInfo from '@widgets/users/ui/UserInfo.tsx';
+import MyInfo from '@widgets/users/ui/MyInfo.tsx';
 
 const MyPage = () => {
-  return <UserInfo />;
+  return <MyInfo />;
 };
 
 export default MyPage;
