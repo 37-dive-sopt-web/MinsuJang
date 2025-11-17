@@ -1,6 +1,6 @@
 import TabList from '@shared/ui/TabList.tsx';
 import { useRouteTab } from '@features/app-tabs/model/useRouteTab.ts';
-import { MY_PAGE_TABS } from '@features/app-tabs/config/mPageTab.ts';
+import { MY_PAGE_TABS } from '@features/app-tabs/config/myPageTab.ts';
 
 const MyPageTabs = () => {
   const { isActive, handleClickTab } = useRouteTab();
