@@ -4,3 +4,5 @@ export { default as Column } from '@shared/ui/Column';
 export { default as Label } from '@shared/ui/Label';
 export { default as Top } from '@shared/ui/Top';
 export { default as Form } from '@shared/ui/Form';
+export { default as Row } from '@shared/ui/Row';
+export { default as Text } from '@shared/ui/Text';
