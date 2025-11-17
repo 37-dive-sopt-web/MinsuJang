@@ -1,5 +1,5 @@
 import UserSearchBar from '@features/users/ui/UserSearchBar.tsx';
-import UserInfo from '@entities/users/UserInfo.tsx';
+import UserInfo from '@entities/users/ui/UserInfo.tsx';
 import { Column, Top } from '@shared/ui';
 
 const UsersInfoPanel = () => {
