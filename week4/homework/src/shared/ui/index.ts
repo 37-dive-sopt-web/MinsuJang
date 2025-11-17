@@ -7,3 +7,4 @@ export { default as Form } from '@shared/ui/Form';
 export { default as Row } from '@shared/ui/Row';
 export { default as Text } from '@shared/ui/Text';
 export { default as ConfirmModal } from '@shared/ui/ConfirmModal';
+export { default as Loading } from '@shared/ui/Loading';

@@ -3,7 +3,7 @@ import { columnWrapper } from '@shared/ui/Column.css.ts';
 
 type ColumnProps = ChildrenProps & PartialVariants<typeof columnWrapper> & {};
 
-const Column = ({ spacing, align, justify, children, fullWidth }: ColumnProps) => {
+const Column = ({ spacing, align, justify, children, fullWidth, fullHeight }: ColumnProps) => {
   return (
     <div
       className={columnWrapper({
@@ -11,6 +11,7 @@ const Column = ({ spacing, align, justify, children, fullWidth }: ColumnProps) =
         align: align,
         justify: justify,
         fullWidth: fullWidth,
+        fullHeight: fullHeight,
       })}
     >
       {children}

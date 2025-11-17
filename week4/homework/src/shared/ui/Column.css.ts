@@ -31,11 +31,17 @@ export const columnWrapper = recipe({
         width: '100%',
       },
     },
+    fullHeight: {
+      true: {
+        height: '100%',
+      },
+    },
   },
 
   defaultVariants: {
     spacing: 'xs',
     justify: 'center',
     fullWidth: false,
+    fullHeight: false,
   },
 });

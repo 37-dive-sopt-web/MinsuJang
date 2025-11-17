@@ -20,6 +20,7 @@ type FieldProps = {
   label: string;
   id: string;
   placeholder: string;
+  value?: string | number | undefined;
   type?: 'text' | 'password' | 'email' | 'number';
 };
 
@@ -53,7 +54,7 @@ const FormField = ({ label, id, placeholder, type }: FieldProps) => {
   );
 };
 
-const FormPasswordField = ({ label, id, placeholder }: Exclude<FieldProps, 'type'>) => {
+const FormPasswordField = ({ label, id, placeholder, value }: Exclude<FieldProps, 'type'>) => {
   const [visible, setVisible] = useState(false);
   const toggleVisible = () => setVisible(!visible);
   const tooltip = visible ? '비밀번호 숨기기' : '비밀번호 표시';
@@ -74,6 +75,7 @@ const FormPasswordField = ({ label, id, placeholder }: Exclude<FieldProps, 'type
         label={label}
         placeholder={placeholder}
         type={type}
+        value={value}
         render={
           <button
             type={'button'}
