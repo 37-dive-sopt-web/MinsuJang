@@ -33,6 +33,8 @@ globalStyle('h1, h2, h3, h4, h5, h6', {
   color: vars.color.foreground,
 });
 
+globalStyle('p', { margin: 0 });
+
 globalStyle('img, svg, button', { userSelect: 'none' });
 
 globalStyle('a', { color: 'inherit', textDecoration: 'none' });
