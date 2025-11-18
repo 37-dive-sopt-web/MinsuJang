@@ -21,7 +21,7 @@ const UserSearchBar = ({ handleChange, value, onSearch }: UserSearchBarProps) =>
         onChange={handleChange}
         onKeyDown={(e) => e.key === 'Enter' && onSearch()}
       />
-      <Button label='확인' type='button' fullWidth={true} onClick={onSearch} disabled={disabled} />
+      <Button label='확인' type='button' fullWidth={true} onClick={onSearch} tone={disabled ? 'secondary' : 'primary'} disabled={disabled} />
     </Column>
   );
 };
