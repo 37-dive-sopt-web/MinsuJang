@@ -4,6 +4,7 @@ import { persist } from 'zustand/middleware';
 type AuthState = {
   isLoggedIn: boolean;
   userId: number | null;
+  name: string | null;
   login: (userId: number) => void;
   logout: () => void;
 };
@@ -13,6 +14,7 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       isLoggedIn: false,
       userId: null,
+      name: null,
       login: (userId) => set({ isLoggedIn: true, userId }),
       logout: () => set({ isLoggedIn: false, userId: null }),
     }),
