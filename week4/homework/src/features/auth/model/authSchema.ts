@@ -2,11 +2,11 @@ import { z } from 'zod';
 
 const commonSchema = z.object({
   username: z
-    .string()
+    .string('문자만 입력 가능합니다!')
     .min(1, '아이디를 입력해 주세요')
-    .max(25, '아이디는 최대 25자 까지 가능합니다'),
+    .max(50, '아이디는 최대 50자 까지 가능합니다'),
   password: z
-    .string()
+    .string('문자만 입력 가능합니다!')
     .min(8, '비밀번호는 최소 8자 이상 입력해 주세요')
     .max(64, '비밀번호는 최대 64자까지 가능합니다')
     .refine((value) => !/\s/.test(value), {
@@ -31,10 +31,10 @@ export const loginSchema = commonSchema;
 export const signUpSchema = commonSchema
   .extend({
     confirmPassword: commonSchema.shape.password,
-    name: z.string().min(1, '이름을 입력해 주세요'),
+    name: z.string('문자만 입력 가능합니다!').min(1, '이름을 입력해 주세요'),
     email: z.email('유효한 이메일 형식이 아닙니다.'),
     age: z
-      .number()
+      .number('숫자만 입력해 주세요!')
       .min(1, '나이는 최소 1살 이상입니다')
       .max(100, '나이는 최대 100살까지 가능합니다'),
   })

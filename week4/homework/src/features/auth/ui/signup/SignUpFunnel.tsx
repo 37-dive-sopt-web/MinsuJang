@@ -3,32 +3,46 @@ import { Button, Form } from '@shared/ui';
 import type { SignUpFunnelStep } from '@features/auth/model/types.ts';
 import { signUpFunnelSteps } from '@features/auth/config/signup.ts';
 import { IdStep, InfoStep, PasswordStep } from '@features/auth/ui';
-import type { FormEvent } from 'react';
+import { useSignUpForm } from '@features/auth/model/useSignUpForm.ts';
 
 const SignUpFunnel = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isValid },
+    handleSignUp,
+    getCurrentStepStates,
+  } = useSignUpForm('all');
   const { currentStep, nextStep } = useFunnelFlow<SignUpFunnelStep>(signUpFunnelSteps);
-  const handleSignUp = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+
+  const stepStates = getCurrentStepStates(currentStep);
+  const isCurrentStepValid = stepStates.every((state) => state.isTouched && !state.invalid);
 
   const renderStep = () => {
     switch (currentStep) {
       case 'ID': {
-        return <IdStep />;
+        return <IdStep register={register} errors={errors} />;
       }
       case 'PASSWORD': {
-        return <PasswordStep />;
+        return <PasswordStep register={register} errors={errors} />;
       }
       case 'INFO': {
-        return <InfoStep />;
+        return <InfoStep register={register} errors={errors} isValid={isValid} />;
       }
     }
   };
 
   return (
     <>
-      <Form onSubmit={handleSignUp}>{renderStep()}</Form>
-      {currentStep !== 'INFO' && <Button label='다음' onClick={nextStep} />}
+      <Form onSubmit={handleSubmit(handleSignUp)}>{renderStep()}</Form>
+      {currentStep !== 'INFO' && (
+        <Button
+          label='다음'
+          onClick={nextStep}
+          tone={!isCurrentStepValid ? 'secondary' : 'primary'}
+          disabled={!isCurrentStepValid}
+        />
+      )}
     </>
   );
 };

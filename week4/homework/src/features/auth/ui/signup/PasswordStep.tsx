@@ -1,20 +1,35 @@
-import { Form } from '@shared/ui';
+import { Form, Text } from '@shared/ui';
+import type { SignUpFunnelStepProps } from '@features/auth/model/types.ts';
 
-const PasswordStep = () => {
+type PasswordStepProps = SignUpFunnelStepProps;
+
+const PasswordStep = ({ register, errors }: PasswordStepProps) => {
   return (
     <>
       <Form.PasswordField
         label='비밀번호'
         id='signup-passowrd'
         placeholder='비밀번호를 입력해 주세요'
-        type='text'
+        required
+        {...register('password')}
       />
+      {errors.password && (
+        <Text.Strong font={'subheading'} color='red'>
+          {errors.password.message}
+        </Text.Strong>
+      )}
       <Form.PasswordField
         label='비밀번호 확인'
         id='signup-passowrd-confirm'
         placeholder='비밀번호 확인'
-        type='text'
+        required
+        {...register('confirmPassword')}
       />
+      {errors.confirmPassword && (
+        <Text.Strong font={'subheading'} color='red'>
+          {errors.confirmPassword.message}
+        </Text.Strong>
+      )}
     </>
   );
 };

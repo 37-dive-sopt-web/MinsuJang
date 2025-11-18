@@ -54,7 +54,13 @@ const FormField = ({ label, id, placeholder, type, ...inputProps }: FieldProps) 
   );
 };
 
-const FormPasswordField = ({ label, id, placeholder, value, ...inputProps }: Exclude<FieldProps, 'type'>) => {
+const FormPasswordField = ({
+  label,
+  id,
+  placeholder,
+  value,
+  ...inputProps
+}: Exclude<FieldProps, 'type'>) => {
   const [visible, setVisible] = useState(false);
   const toggleVisible = () => setVisible(!visible);
   const tooltip = visible ? '비밀번호 숨기기' : '비밀번호 표시';
@@ -76,7 +82,6 @@ const FormPasswordField = ({ label, id, placeholder, value, ...inputProps }: Exc
         placeholder={placeholder}
         type={type}
         value={value}
-        {...inputProps}
         render={
           <button
             type={'button'}
@@ -87,6 +92,7 @@ const FormPasswordField = ({ label, id, placeholder, value, ...inputProps }: Exc
             {renderEye()}
           </button>
         }
+        {...inputProps}
       />
     </Column>
   );
