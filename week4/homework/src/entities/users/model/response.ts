@@ -11,3 +11,7 @@ export type LoginResponse = {
   userId: number;
   message: string;
 };
+
+export type SignUpResponse = UserInfoResponse;
+
+export type UpdateUserInfoResponse = UserInfoResponse;

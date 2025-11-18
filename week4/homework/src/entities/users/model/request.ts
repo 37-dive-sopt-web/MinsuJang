@@ -3,3 +3,5 @@ import type { LoginFormValues, SignUpFormValues } from '@features/auth/model/aut
 export type LoginRequest = LoginFormValues;
 
 export type SignUpRequest = Exclude<SignUpFormValues, 'passwordConfirm'>;
+
+export type UpdateUserRequest = Partial<SignUpFormValues>;
